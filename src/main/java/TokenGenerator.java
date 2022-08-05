@@ -1,52 +1,48 @@
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.Scanner;
 
 public class TokenGenerator {
-
     public static void main(String[] args) {
-
-        //Random token = new Random();
-        //byte[] chars = new byte[5];
-        //char randomToken = (char)(token.nextInt(94)); //-> ta metoda podmienia nam liczby wpisane przez uzytkownika
-        // na ascii chars a powinna dawac zupelnie randomowy ciag ograniczony do 5, 10 lub 15
-        //String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk"
-                //+ "lmnopqrstuvwxyz!@#$%&";
+        String charTable = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+        StringBuilder shortToken = new StringBuilder();
+        Random random = new Random();
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter 5 for 5-character token" +
-                           "\n 10 for 10-character token" +
-                           "\n 15 for 15-character token");
-
+        System.out.println("which token would you like to generate? \n - 5, 10 or 15 characters?");
         int userInput = input.nextInt();
+
         switch (userInput) {
             case 5 -> {
-                byte[] array = new byte[5]; // length is bounded by 5
-                new Random().nextBytes(array);
-                String shortLengthToken = new String(array, StandardCharsets.US_ASCII);
-                System.out.println("Here is your 5-character token: " + shortLengthToken); // + generated token
+                int shortLength = 5;
+                for(int i = 0; i<shortLength; i++) {
+                    int index = random.nextInt(charTable.length());
+                    char randomChar = charTable.charAt(index);
+                    shortToken.append(randomChar);
+                }
+                String shortToken1 = shortToken.toString();
+                System.out.println("your token is: " + shortToken1);
             }
             case 10 -> {
-                byte[] array = new byte[10]; // length is bounded by 10
-                new Random().nextBytes(array);
-                String mediumLengthToken = new String(array, StandardCharsets.US_ASCII);
-                System.out.println("Here is your 10-character token: " + mediumLengthToken); // + generated token
+                int midLength = 10;
+                for(int i = 0; i<midLength; i++) {
+                    int index = random.nextInt(charTable.length());
+                    char randomChar = charTable.charAt(index);
+                    shortToken.append(randomChar);
+                }
+                String shortToken2 = shortToken.toString();
+                System.out.println("your token is: " + shortToken2);
             }
             case 15 -> {
-                byte[] array = new byte[15]; // length is bounded by 15
-                new Random().nextBytes(array);
-                String longToken = new String(array, StandardCharsets.US_ASCII);
-                System.out.println("Here is your 15-character token: " + longToken); // + generated token
+                int longLength = 15;
+                for(int i = 0; i<longLength; i++) {
+                    int index = random.nextInt(charTable.length());
+                    char randomChar = charTable.charAt(index);
+                    shortToken.append(randomChar);
+                }
+                String shortToken3 = shortToken.toString();
+                System.out.println("your token is: " + shortToken3);
             }
-            default -> System.out.println("Please try again");
+            default -> System.out.println("Please try again - enter 5, 10 or 15 - to get your token");
         }
-
-
-
-
-
-
-
     }
 }
