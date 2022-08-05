@@ -8,7 +8,8 @@ public class TokenGenerator {
         Random random = new Random();
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Which token would you like to generate? \n - 5, 10 or 15 characters?");
+        System.out.println("Which token would you like to generate? \n Enter 5, for 5-character token, " +
+                           "\n Enter 10, for 10-character token, \n Enter 15, for 15-character token.");
         int userInput = input.nextInt();
 
         switch (userInput) {
