@@ -4,43 +4,43 @@ import java.util.Scanner;
 public class TokenGenerator {
     public static void main(String[] args) {
         String charTable = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-        StringBuilder shortToken = new StringBuilder();
+        StringBuilder token = new StringBuilder();
         Random random = new Random();
 
         Scanner input = new Scanner(System.in);
-        System.out.println("which token would you like to generate? \n - 5, 10 or 15 characters?");
+        System.out.println("Which token would you like to generate? \n - 5, 10 or 15 characters?");
         int userInput = input.nextInt();
 
         switch (userInput) {
             case 5 -> {
-                int shortLength = 5;
-                for(int i = 0; i<shortLength; i++) {
+                int length = 5;
+                for(int i = 0; i<length; i++) {
                     int index = random.nextInt(charTable.length());
                     char randomChar = charTable.charAt(index);
-                    shortToken.append(randomChar);
+                    token.append(randomChar);
                 }
-                String shortToken1 = shortToken.toString();
-                System.out.println("your token is: " + shortToken1);
+                String shortToken = token.toString();
+                System.out.println("Your token is: " + shortToken);
             }
             case 10 -> {
-                int midLength = 10;
-                for(int i = 0; i<midLength; i++) {
+                int length = 10;
+                for(int i = 0; i<length; i++) {
                     int index = random.nextInt(charTable.length());
                     char randomChar = charTable.charAt(index);
-                    shortToken.append(randomChar);
+                    token.append(randomChar);
                 }
-                String shortToken2 = shortToken.toString();
-                System.out.println("your token is: " + shortToken2);
+                String mediumToken = token.toString();
+                System.out.println("Your token is: " + mediumToken);
             }
             case 15 -> {
-                int longLength = 15;
-                for(int i = 0; i<longLength; i++) {
+                int length = 15;
+                for(int i = 0; i<length; i++) {
                     int index = random.nextInt(charTable.length());
                     char randomChar = charTable.charAt(index);
-                    shortToken.append(randomChar);
+                    token.append(randomChar);
                 }
-                String shortToken3 = shortToken.toString();
-                System.out.println("your token is: " + shortToken3);
+                String longToken = token.toString();
+                System.out.println("Your token is: " + longToken);
             }
             default -> System.out.println("Please try again - enter 5, 10 or 15 - to get your token");
         }
